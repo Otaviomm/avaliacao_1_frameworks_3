@@ -56,16 +56,16 @@ const headers = [
 
 
 const top10Games = [
-  { id: 1, title: 'The Legend of Zelda: Ocarina of Time', platform: 'Nintendo 64', genre: 'Action-Adventure', score: 99, imageUrl: 'https://upload.wikimedia.org/wikipedia/pt/1/17/The_Legend_of_Zelda_Ocarina_of_Time_capa.png' },
-  { id: 2, title: 'Tony Hawk\'s Pro Skater 2', platform: 'PlayStation', genre: 'Sports', score: 98, imageUrl: 'https://static.metacritic.com/images/products/games/1/e335030d3d81b31a3f13961b3c9a2d8d-98.jpg' },
-  { id: 3, title: 'Grand Theft Auto IV', platform: 'PlayStation 3', genre: 'Action-Adventure', score: 98, imageUrl: 'https://static.metacritic.com/images/products/games/4/cb03cad56553835694207823e5975e47-98.jpg' },
-  { id: 4, title: 'SoulCalibur', platform: 'Dreamcast', genre: 'Fighting', score: 98, imageUrl: 'https://static.metacritic.com/images/products/games/5/360c1c876251a3dd319a2e76555198a1-98.jpg' },
-  { id: 5, title: 'Super Mario Galaxy', platform: 'Wii', genre: 'Platformer', score: 97, imageUrl: 'https://static.metacritic.com/images/products/games/4/a2f4044815145b23e21825dd51e51b9e-98.jpg' },
-  { id: 6, title: 'Red Dead Redemption 2', platform: 'PlayStation 4', genre: 'Action-Adventure', score: 97, imageUrl: 'https://static.metacritic.com/images/products/games/8/18b233b2a59c991b97a22a36f5628a8d-98.jpg' },
-  { id: 7, title: 'The Legend of Zelda: Breath of the Wild', platform: 'Nintendo Switch', genre: 'Action-Adventure', score: 97, imageUrl: 'https://static.metacritic.com/images/products/games/9/e0a149c41a1a722ac9e99c3d42b9c79f-98.jpg' },
-  { id: 8, title: 'Half-Life 2', platform: 'PC', genre: 'FPS', score: 96, imageUrl: 'https://static.metacritic.com/images/products/games/3/f06883556c4d8acec18251e0f63a3def-98.jpg' },
-  { id: 9, title: 'The Orange Box', platform: 'PC', genre: 'Compilation', score: 96, imageUrl: 'https://static.metacritic.com/images/products/games/1/4005b736780c653018265a7f9a1f5923-98.jpg' },
-  { id: 10, title: 'Baldur\'s Gate 3', platform: 'PC', genre: 'RPG', score: 96, imageUrl: 'https://static.metacritic.com/images/products/games/5/2c035d21a209939f42111d96030c6a53-98.jpg' },
+  { id: 1, title: 'The Legend of Zelda: Ocarina of Time', platform: 'Nintendo 64', genre: 'Action-Adventure', score: 99, imageUrl: '/images/zelda_oot.jpg', notes: '' },
+  { id: 2, title: 'Tony Hawk\'s Pro Skater 2', platform: 'PlayStation', genre: 'Sports', score: 98, imageUrl: '/images/thps2.jpg', notes: '' },
+  { id: 3, title: 'Grand Theft Auto IV', platform: 'PlayStation 3', genre: 'Action-Adventure', score: 98, imageUrl: '/images/gta4.jpg', notes: '' },
+  { id: 4, title: 'SoulCalibur', platform: 'Dreamcast', genre: 'Fighting', score: 98, imageUrl: '/images/soulcalibur.jpg', notes: '' },
+  { id: 5, title: 'Super Mario Galaxy', platform: 'Wii', genre: 'Platformer', score: 97, imageUrl: '/images/mario_galaxy.jpg', notes: '' },
+  { id: 6, title: 'Red Dead Redemption 2', platform: 'PlayStation 4', genre: 'Action-Adventure', score: 97, imageUrl: '/images/rdr2.jpg', notes: '' },
+  { id: 7, title: 'The Legend of Zelda: Breath of the Wild', platform: 'Nintendo Switch', genre: 'Action-Adventure', score: 97, imageUrl: '/images/zelda_botw.jpg', notes: '' },
+  { id: 8, title: 'Half-Life 2', platform: 'PC', genre: 'FPS', score: 96, imageUrl: '/images/hl2.jpg', notes: '' },
+  { id: 9, title: 'The Orange Box', platform: 'PC', genre: 'Compilation', score: 96, imageUrl: '/images/orange_box.jpg', notes: '' },
+  { id: 10, title: 'Baldur\'s Gate 3', platform: 'PC', genre: 'RPG', score: 96, imageUrl: '/images/bg3.jpg', notes: '' },
 ];
 
 

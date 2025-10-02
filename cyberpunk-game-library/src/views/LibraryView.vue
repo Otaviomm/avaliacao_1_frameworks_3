@@ -26,7 +26,7 @@
     </v-row>
     <v-row>
       <v-col v-for="jogo in jogosFiltrados" :key="jogo.id" cols="12" sm="6" md="4" lg="3">
-        <v-card class="game-card">
+        <v-card class="game-card" :to="`/game/${jogo.id}`">
           <v-img :src="jogo.imageUrl" height="250px" cover>
             <template v-slot:placeholder>
               <div class="d-flex align-center justify-center fill-height">

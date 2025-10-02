@@ -11,8 +11,13 @@
           <v-text-field label="Gênero" v-model="jogo.genre"></v-text-field>
           <v-text-field label="Nota Metacritic*" v-model.number="jogo.score" type="number" :rules="[rules.required, rules.score]" required></v-text-field>
           <v-text-field label="URL da Imagem da Capa" v-model="jogo.imageUrl"></v-text-field>
-        </v-container>
-        <small class="text-primary">*Campos obrigatórios</small>
+          <v-textarea
+            label="Anotações Pessoais"
+            v-model="jogo.notes"
+            auto-grow
+            rows="2"
+          ></v-textarea>
+        </v-container> <small class="text-primary">*Campos obrigatórios</small>
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
@@ -33,10 +38,9 @@ const props = defineProps({
 
 const emit = defineEmits(['update:dialog', 'salvar'])
 
-const jogo = ref({ id: null, title: '', platform: '', genre: '', score: null, imageUrl: '' })
+const jogo = ref({ id: null, title: '', platform: '', genre: '', score: null, imageUrl: '', notes: '' })
 const formTitle = computed(() => (props.jogoParaEdicao ? 'Editar Jogo' : 'Adicionar Jogo'))
 
-// Regras de validação (BÔNUS DA AVALIAÇÃO)
 const rules = {
   required: value => !!value || 'Campo obrigatório.',
   score: value => (value >= 0 && value <= 100) || 'A nota deve ser entre 0 e 100.'
@@ -46,7 +50,7 @@ onUpdated(() => {
   if (props.jogoParaEdicao) {
     jogo.value = { ...props.jogoParaEdicao }
   } else {
-    jogo.value = { id: null, title: '', platform: '', genre: '', score: null, imageUrl: '' }
+    jogo.value = { id: null, title: '', platform: '', genre: '', score: null, imageUrl: '', notes: '' }
   }
 })
 
@@ -56,7 +60,6 @@ const dialogInterno = computed({
 })
 
 function salvar() {
-  // Simples verificação antes de salvar
   if (jogo.value.title && jogo.value.score >= 0 && jogo.value.score <= 100) {
     emit('salvar', { ...jogo.value })
     dialogInterno.value = false

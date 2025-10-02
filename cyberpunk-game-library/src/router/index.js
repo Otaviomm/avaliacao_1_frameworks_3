@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import GameDetailView from '../views/GameDetailView.vue' // 1. IMPORTA A NOVA VIEW
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -18,6 +19,12 @@ const router = createRouter({
       path: '/about',
       name: 'about',
       component: () => import('../views/AboutView.vue')
+    },
+    // 2. ADICIONA A NOVA ROTA DINÂMICA
+    {
+      path: '/game/:id',
+      name: 'game-detail',
+      component: GameDetailView
     }
   ]
 })
