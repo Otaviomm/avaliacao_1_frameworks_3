@@ -1,29 +1,15 @@
-# cyberpunk-game-library
+# CyberLibrary - Biblioteca de Jogos
 
-This template should help get you started developing with Vue 3 in Vite.
+## Descrição
+Uma aplicação web para gerenciar uma biblioteca de jogos, desenvolvida com Vue 3 e Vuetify 3, e com uma estética inspirada no universo Cyberpunk. Este projeto cumpre os requisitos da Avaliação 1 de Frameworks Modernos.
 
-## Recommended IDE Setup
+## Integrantes do Grupo
+* **Nome Completo:** [Seu Nome Aqui] - **Matrícula:** [Sua Matrícula]
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Como Executar
+1. Clone este repositório.
+2. Navegue até a pasta do projeto: `cd cyberpunk-game-library`
+3. Instale as dependências: `npm install`
+4. Execute o servidor de desenvolvimento: `npm run dev`
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+A aplicação estará disponível em `http://localhost:5173`.
