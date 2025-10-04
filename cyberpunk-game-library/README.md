@@ -1,34 +1,79 @@
 # CyberLibrary - Biblioteca de Jogos
 
-## Descrição
-Uma aplicação web para gerenciar uma biblioteca de jogos, desenvolvida com Vue 3 e Vuetify 3, e com uma estética inspirada no universo Cyberpunk. Este projeto cumpre os requisitos da Avaliação 1 de Frameworks Modernos.
+## 📖 Sobre o Projeto
 
-## Integrantes do Grupo
+Este projeto é uma aplicação web completa para gerenciamento de uma biblioteca de jogos, desenvolvida com **Vue 3** e **Vuetify 3**. O tema escolhido foi **Cyberpunk 2077**, inspirando a paleta de cores neon, a tipografia futurista e a estética geral da interface.
+
+A aplicação cumpre todos os requisitos da Avaliação 1 da disciplina de Frameworks Modernos para Desenvolvimento de Sistemas.
+
+## 👥 Integrantes do Grupo
+
 * **Nome Completo:** [Seu Nome Aqui] - **Matrícula:** [Sua Matrícula]
-
-## Como Executar
-1. Clone este repositório.
-2. Navegue até a pasta do projeto: `cd cyberpunk-game-library`
-3. Instale as dependências: `npm install`
-4. Execute o servidor de desenvolvimento: `npm run dev`
-
-A aplicação estará disponível em `http://localhost:5173`.
 
 ---
 
-## Funcionalidades Principais
+## 🚀 Como Instalar e Executar
 
-A CyberLibrary foi projetada para ser uma ferramenta intuitiva para todo gamer. Aqui está um resumo de como utilizá-la:
+Siga os passos abaixo para rodar o projeto em seu ambiente de desenvolvimento.
 
-* **Visualizar a Biblioteca (`/library`):** A página principal da biblioteca exibe sua coleção em formato de cards visuais. Aqui você pode:
-    * **Buscar** por um jogo específico usando a barra de busca.
-    * **Ordenar** sua coleção por nota ou por ordem alfabética.
+### Pré-requisitos
 
-* **Gerenciar Jogos (`/`):** A página de gerenciamento apresenta seus jogos em uma tabela detalhada, ideal para as seguintes ações:
-    * **Adicionar um Jogo:** Clique no botão "Adicionar Jogo" para abrir o formulário e catalogar um novo título, incluindo uma capa e anotações pessoais.
-    * **Editar um Jogo:** Clique no ícone de lápis (✏️) ao lado de um jogo para abrir o formulário e atualizar suas informações.
-    * **Excluir um Jogo:** Clique no ícone de lixeira (🗑️) para remover um jogo. Um diálogo de confirmação aparecerá para evitar exclusões acidentais.
+* **Node.js:** Versão 18.x ou superior.
+* **NPM** (geralmente instalado junto com o Node.js).
 
-* **Ver Detalhes do Jogo:** Ao clicar em qualquer card na página da biblioteca, você será levado a uma página de detalhes exclusiva para aquele jogo, onde poderá ver a capa em tamanho maior e ler suas anotações pessoais.
+### Passos de Instalação
 
-* **Consultar Estatísticas (`/about`):** A página "Sobre" não só descreve o projeto, mas também exibe estatísticas em tempo real da sua coleção, como o número total de jogos e a contagem por gênero.
+1.  **Clone o repositório:**
+    ```bash
+    git clone [URL_DO_SEU_REPOSITORIO]
+    ```
+
+2.  **Acesse a pasta do projeto:**
+    ```bash
+    cd cyberpunk-game-library
+    ```
+
+3.  **Instale as dependências:**
+    ```bash
+    npm install
+    ```
+
+4.  **Execute o servidor de desenvolvimento:**
+    ```bash
+    npm run dev
+    ```
+
+Após executar o último comando, a aplicação estará disponível no seu navegador, geralmente em `http://localhost:5173`.
+
+---
+
+## 🏛️ Estrutura de Rotas e Componentes
+
+O projeto é organizado com uma arquitetura baseada em componentes para garantir reusabilidade e manutenção.
+
+### Rotas Principais
+
+* `/` (**Gerenciar**): Página principal com uma tabela (`v-data-table`) para realizar as operações de CRUD (Criar, Ler, Atualizar e Deletar) nos jogos.
+* `/library` (**Biblioteca**): Exibe a coleção de jogos em formato de cards visuais. Inclui funcionalidades de busca por nome e ordenação.
+* `/about` (**Sobre**): Apresenta informações sobre o projeto, as tecnologias utilizadas e estatísticas dinâmicas sobre a biblioteca.
+* `/game/:id` (**Detalhes do Jogo**): Rota dinâmica que exibe informações detalhadas de um jogo específico, incluindo as anotações pessoais do usuário.
+
+### Componentes Chave
+
+* `AppBar.vue`: A barra de navegação superior, contendo o título com efeito "glitch" e os links para as principais rotas.
+* `GameForm.vue`: Um componente reutilizável que contém o diálogo (`v-dialog`) e o formulário para adicionar ou editar jogos, incluindo validações de campos.
+
+---
+
+## ✨ Funcionalidades Principais
+
+* **Visualizar a Biblioteca (`/library`):**
+    * Buscar por um jogo específico usando a barra de busca.
+    * Ordenar a coleção por nota ou por ordem alfabética.
+* **Gerenciar Jogos (`/`):**
+    * Adicionar, editar e excluir jogos da sua coleção.
+    * Diálogo de confirmação para evitar exclusões acidentais.
+* **Ver Detalhes do Jogo:**
+    * Página exclusiva para cada jogo com capa em destaque e anotações pessoais.
+* **Consultar Estatísticas (`/about`):**
+    * Exibe em tempo real o total de jogos e a contagem por gênero.
