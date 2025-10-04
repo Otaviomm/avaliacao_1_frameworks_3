@@ -27,7 +27,7 @@ Siga os passos abaixo para rodar o projeto em seu ambiente de desenvolvimento.
 
 1.  **Clone o repositório:**
     ```bash
-    git clone [URL_DO_SEU_REPOSITORIO]
+    git clone https://github.com/Otaviomm/avaliacao_1_frameworks_3
     ```
 
 2.  **Acesse a pasta do projeto:**
