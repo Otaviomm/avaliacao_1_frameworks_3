@@ -4,7 +4,6 @@
 
 Este projeto é uma aplicação web completa para gerenciamento de uma biblioteca de jogos, desenvolvida com **Vue 3** e **Vuetify 3**. O tema escolhido foi **Cyberpunk 2077**, inspirando a paleta de cores neon, a tipografia futurista e a estética geral da interface.
 
-A aplicação cumpre todos os requisitos da Avaliação 1 da disciplina de Frameworks Modernos para Desenvolvimento de Sistemas.
 
 ## 👥 Integrantes do Grupo
 
