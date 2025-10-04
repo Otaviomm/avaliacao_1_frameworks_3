@@ -8,7 +8,9 @@ A aplicação cumpre todos os requisitos da Avaliação 1 da disciplina de Frame
 
 ## 👥 Integrantes do Grupo
 
-* **Nome Completo:** [Seu Nome Aqui] - **Matrícula:** [Sua Matrícula]
+* **Nome Completo:** GUILLERMO GILIOLI DE PAULA COELHO - **Matrícula:** 20230004948
+* **Nome Completo:** KAIKY MARÇAL FERREIRA - **Matrícula:** 20230023649
+* **Nome Completo:** OTÁVIO MANIEZZO MILAN - **Matrícula:** 20230009247
 
 ---
 
