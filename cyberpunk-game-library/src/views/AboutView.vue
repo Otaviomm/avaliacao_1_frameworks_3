@@ -29,7 +29,7 @@
           </v-card-title>
           <v-card-text>
             <div class="d-flex justify-space-between align-center mb-4">
-              <span class="text-h6">Total de Jogos na Biblioteca:</span>
+              <span class="text-h6">Total de Jogos no Banco:</span>
               <v-chip color="primary" size="large">{{ totalJogos }}</v-chip>
             </div>
 
