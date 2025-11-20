@@ -53,7 +53,7 @@
 
 <script setup>
 import { ref, onMounted, computed } from 'vue'
-import axios from 'axios' // <--- IMPORTANTE
+import axios from 'axios'
 
 const termoBusca = ref('')
 const ordenacao = ref('Nota (Maior para Menor)')
@@ -79,7 +79,6 @@ const jogosFiltrados = computed(() => {
   return jogosProcessados;
 });
 
-// AQUI MUDOU: Busca do servidor em vez do localStorage
 onMounted(async () => {
   try {
     const response = await axios.get('http://localhost:3000/games')

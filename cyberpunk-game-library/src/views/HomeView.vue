@@ -39,7 +39,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import axios from 'axios' // IMPORTANTE: Agora usamos axios em vez de localStorage
+import axios from 'axios' 
 import GameForm from '@/components/GameForm.vue'
 
 // Variáveis de Estado
@@ -51,7 +51,6 @@ const jogoParaExcluir = ref(null)
 const snackbar = ref(false)
 const snackbarText = ref('')
 
-// Configuração da Tabela
 const headers = [
   { title: 'Título', value: 'title' },
   { title: 'Plataforma', value: 'platform' },
@@ -60,12 +59,9 @@ const headers = [
   { title: 'Ações', value: 'actions', sortable: false }
 ]
 
-// URL do seu Backend
+
 const API_URL = 'http://localhost:3000/games'
 
-// --- FUNÇÕES DE INTEGRAÇÃO COM O BACKEND ---
-
-// 1. Carregar Jogos (READ)
 async function carregarJogos() {
   try {
     const response = await axios.get(API_URL)
@@ -77,28 +73,26 @@ async function carregarJogos() {
   }
 }
 
-// Carrega os dados assim que a página abre
 onMounted(() => {
   carregarJogos()
 })
 
-// 2. Salvar Jogo (CREATE / UPDATE)
 async function salvarJogo(jogo) {
   try {
     if (jogo.id) {
-      // Se tem ID, é EDIÇÃO (PUT)
+      
       await axios.put(`${API_URL}/${jogo.id}`, jogo)
       snackbarText.value = "Jogo atualizado com sucesso!"
     } else {
-      // Se não tem ID, é CRIAÇÃO (POST)
+      
       await axios.post(API_URL, jogo)
       snackbarText.value = "Jogo adicionado à biblioteca!"
     }
     
-    // Atualiza a tabela
+    
     await carregarJogos()
     snackbar.value = true
-    dialog.value = false // Fecha o formulário
+    dialog.value = false 
   } catch (error) {
     console.error('Erro ao salvar:', error)
     snackbarText.value = "Erro ao salvar jogo"
@@ -106,7 +100,7 @@ async function salvarJogo(jogo) {
   }
 }
 
-// 3. Excluir Jogo (DELETE)
+
 async function confirmarExclusao() {
   if (jogoParaExcluir.value) {
     try {
@@ -114,7 +108,7 @@ async function confirmarExclusao() {
       snackbarText.value = "Jogo removido da biblioteca!"
       snackbar.value = true
       
-      // Atualiza a tabela
+    
       await carregarJogos()
     } catch (error) {
       console.error('Erro ao excluir:', error)
@@ -125,7 +119,7 @@ async function confirmarExclusao() {
   dialogExcluir.value = false
 }
 
-// --- FUNÇÕES DE INTERFACE (Abrir/Fechar Modais) ---
+
 
 function abrirDialog() {
   jogoParaEdicao.value = null
@@ -133,7 +127,6 @@ function abrirDialog() {
 }
 
 function editarJogo(jogo) {
-  // Cria uma cópia para não editar direto na tabela antes de salvar
   jogoParaEdicao.value = { ...jogo }
   dialog.value = true
 }
@@ -146,6 +139,6 @@ function abrirDialogExclusao(jogo) {
 
 <style scoped>
 .game-card {
-  border: 1px solid #FF00F8; /* Borda Neon Rosa para o dialog de excluir */
+  border: 1px solid #FF00F8;
 }
 </style>

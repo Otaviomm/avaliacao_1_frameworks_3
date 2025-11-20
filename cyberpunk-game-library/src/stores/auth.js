@@ -3,7 +3,7 @@ import { supabase } from '../supabase'
 
 export const useAuthStore = defineStore('auth', {
   state: () => ({
-    user: null, // Guarda dados do usuário (nome, email, foto)
+    user: null, 
   }),
   actions: {
     async loginGoogle() {
@@ -16,7 +16,6 @@ export const useAuthStore = defineStore('auth', {
       await supabase.auth.signOut()
       this.user = null
     },
-    // Persistir sessão ao recarregar [cite: 110]
     async checkUser() {
       const { data } = await supabase.auth.getSession()
       if (data.session) {

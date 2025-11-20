@@ -20,14 +20,12 @@ const router = createRouter({
     {
       path: '/library',
       name: 'library',
-      // Garanta que o arquivo LibraryView.vue existe na pasta views
       component: () => import('../views/LibraryView.vue'),
       meta: { requiresAuth: true }
     },
     {
       path: '/about',
       name: 'about',
-      // Garanta que o arquivo AboutView.vue existe na pasta views
       component: () => import('../views/AboutView.vue'),
       meta: { requiresAuth: true }
     },

@@ -1,9 +1,6 @@
-# CyberLibrary - Biblioteca de Jogos
 
-## 📖 Sobre o Projeto
 
-Este projeto é uma aplicação web completa para gerenciamento de uma biblioteca de jogos, desenvolvida com **Vue 3** e **Vuetify 3**. O tema escolhido foi **Cyberpunk 2077**, inspirando a paleta de cores neon, a tipografia futurista e a estética geral da interface.
-
+---# 🕹️ CyberLibrary v2.0 - Full Stack Edition
 
 ## 👥 Integrantes do Grupo
 
@@ -11,70 +8,111 @@ Este projeto é uma aplicação web completa para gerenciamento de uma bibliotec
 * **Nome Completo:** KAIKY MARÇAL FERREIRA - **Matrícula:** 20230023649
 * **Nome Completo:** OTÁVIO MANIEZZO MILAN - **Matrícula:** 20230009247
 
+## 📖 Descrição do Projeto
+
+A **CyberLibrary** é uma aplicação web robusta para gerenciamento de coleções de jogos, desenvolvida com uma arquitetura **Full Stack**. O projeto utiliza a estética Cyberpunk 2077 e evoluiu de uma aplicação estática para um sistema dinâmico integrado à nuvem.
+
+Esta versão cumpre todos os requisitos da **Avaliação 2** da disciplina de Frameworks Modernos, implementando persistência em banco de dados, API REST própria e autenticação segura via Google.
+
 ---
 
-## 🚀 Como Instalar e Executar
+## 🛠️ Stack Tecnológica
 
-Siga os passos abaixo para rodar o projeto em seu ambiente de desenvolvimento.
+O projeto foi dividido em duas camadas principais:
+
+### **Frontend (Client)**
+* **Framework:** Vue.js 3 (Composition API)
+* **UI Library:** Vuetify 3 (Material Design com tema Cyberpunk customizado)
+* **Gerenciamento de Estado:** Pinia (Persistência de sessão de usuário)
+* **Roteamento:** Vue Router (Com guardas de navegação/rotas protegidas)
+* **Requisições HTTP:** Axios
+* **Build Tool:** Vite
+
+### **Backend (Server & DB)**
+* **Servidor:** Node.js + Express
+* **Banco de Dados:** Supabase (PostgreSQL)
+* **Autenticação:** Google OAuth 2.0 (Integrado via Supabase Auth)
+* **Segurança:** CORS habilitado
+
+---
+
+## 🚀 Como Executar o Projeto
+
+Como esta é uma aplicação Full Stack, é necessário rodar o **Backend** e o **Frontend** em terminais separados.
 
 ### Pré-requisitos
+* Node.js instalado (v18 ou superior).
+* Conta no Supabase configurada.
 
-* **Node.js:** Versão 18.x ou superior.
-* **NPM** (geralmente instalado junto com o Node.js).
+### 1️⃣ Configuração do Backend (Terminal 1)
 
-### Passos de Instalação
+O backend é responsável por conectar ao banco de dados e servir a API.
 
-1.  **Clone o repositório:**
+1.  Acesse a pasta do servidor:
     ```bash
-    git clone https://github.com/Otaviomm/avaliacao_1_frameworks_3
+    cd backend
     ```
 
-2.  **Acesse a pasta do projeto:**
-    ```bash
-    cd cyberpunk-game-library
-    ```
-
-3.  **Instale as dependências:**
+2.  Instale as dependências:
     ```bash
     npm install
     ```
 
-4.  **Execute o servidor de desenvolvimento:**
+3.  **Configuração de Ambiente (.env):**
+    Certifique-se de que existe um arquivo chamado `.env` dentro da pasta `backend` com as suas credenciais do Supabase:
+    ```env
+    SUPABASE_URL=sua_url_do_supabase
+    SUPABASE_KEY=sua_chave_anonima
+    ```
+
+4.  Inicie o servidor:
+    ```bash
+    node server.js
+    ```
+    > ✅ *Você deve ver a mensagem: "Servidor rodando na porta 3000"*
+
+---
+
+### 2️⃣ Configuração do Frontend (Terminal 2)
+
+O frontend é a interface visual que o usuário interage.
+
+1.  Abra um **novo terminal** e acesse a pasta da aplicação:
+    ```bash
+    cd cyberpunk-game-library
+    ```
+
+2.  Instale as dependências:
+    ```bash
+    npm install
+    ```
+
+3.  Inicie a aplicação:
     ```bash
     npm run dev
     ```
-
-Após executar o último comando, a aplicação estará disponível no seu navegador, geralmente em `http://localhost:5173`.
-
----
-
-## 🏛️ Estrutura de Rotas e Componentes
-
-O projeto é organizado com uma arquitetura baseada em componentes para garantir reusabilidade e manutenção.
-
-### Rotas Principais
-
-* `/` (**Gerenciar**): Página principal com uma tabela (`v-data-table`) para realizar as operações de CRUD (Criar, Ler, Atualizar e Deletar) nos jogos.
-* `/library` (**Biblioteca**): Exibe a coleção de jogos em formato de cards visuais. Inclui funcionalidades de busca por nome e ordenação.
-* `/about` (**Sobre**): Apresenta informações sobre o projeto, as tecnologias utilizadas e estatísticas dinâmicas sobre a biblioteca.
-* `/game/:id` (**Detalhes do Jogo**): Rota dinâmica que exibe informações detalhadas de um jogo específico, incluindo as anotações pessoais do usuário.
-
-### Componentes Chave
-
-* `AppBar.vue`: A barra de navegação superior, contendo o título com efeito "glitch" e os links para as principais rotas.
-* `GameForm.vue`: Um componente reutilizável que contém o diálogo (`v-dialog`) e o formulário para adicionar ou editar jogos, incluindo validações de campos.
+    > ✅ *Acesse o link gerado (geralmente http://localhost:5173)*
 
 ---
 
-## ✨ Funcionalidades Principais
+## ✨ Funcionalidades Implementadas
 
-* **Visualizar a Biblioteca (`/library`):**
-    * Buscar por um jogo específico usando a barra de busca.
-    * Ordenar a coleção por nota ou por ordem alfabética.
-* **Gerenciar Jogos (`/`):**
-    * Adicionar, editar e excluir jogos da sua coleção.
-    * Diálogo de confirmação para evitar exclusões acidentais.
-* **Ver Detalhes do Jogo:**
-    * Página exclusiva para cada jogo com capa em destaque e anotações pessoais.
-* **Consultar Estatísticas (`/about`):**
-    * Exibe em tempo real o total de jogos e a contagem por gênero.
+### 🔐 Autenticação e Segurança
+* **Login Social:** Autenticação segura utilizando conta Google.
+* **Proteção de Rotas:** Usuários não autenticados são redirecionados para o login ao tentar acessar a biblioteca.
+* **Gestão de Sessão:** O Pinia mantém o usuário logado mesmo após recarregar a página.
+
+### 💾 CRUD Completo (Integrado ao Supabase)
+* **Create:** Adicionar novos jogos salva os dados diretamente no PostgreSQL.
+* **Read:** A listagem consome a API do Express para exibir dados atualizados.
+* **Update:** Edição de informações (título, nota, gênero, etc.) em tempo real.
+* **Delete:** Remoção de jogos do banco de dados.
+
+### 🎨 Interface e UX
+* **Dashboard:** Página "Sobre" com estatísticas reais vindas do banco de dados (Total de jogos, Gráfico de gêneros).
+* **Tema Personalizado:** Estilo visual inspirado em Cyberpunk 2077.
+* **Filtros:** Busca dinâmica e ordenação no Frontend.
+
+---
+
+> **Professor(a):** Para testar a aplicação, certifique-se de que ambos os terminais (Backend na porta 3000 e Frontend na porta 5173) estejam ativos simultaneamente.

@@ -42,23 +42,21 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-import axios from 'axios' // <--- IMPORTANTE
+import axios from 'axios' 
 
 const jogo = ref(null)
 
 onMounted(async () => {
   const route = useRoute()
-  // O ID vem como string da URL, mas o banco usa número (ou vice-versa dependendo do Supabase)
+  
   const gameId = route.params.id 
 
   try {
-    // Buscamos todos os jogos e filtramos o certo
-    // (Idealmente o backend teria uma rota /games/:id, mas assim funciona sem mexer no backend)
+    
     const response = await axios.get('http://localhost:3000/games')
     const todosOsJogos = response.data
     
-    // Encontra o jogo pelo ID
-    // Usamos '==' para comparar mesmo se um for string e outro numero
+    
     jogo.value = todosOsJogos.find(j => j.id == gameId) 
   } catch (error) {
     console.error("Erro ao carregar detalhes:", error)
