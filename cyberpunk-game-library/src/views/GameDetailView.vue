@@ -29,8 +29,8 @@
     
     <v-row v-else class="text-center mt-10">
       <v-col>
-        <h1 class="text-h3 text-error">Jogo não encontrado</h1>
-        <p>O jogo com este ID não existe na sua biblioteca.</p>
+        <h1 class="text-h3 text-warning">Carregando...</h1>
+        <p>Buscando dados no servidor...</p>
         <v-btn to="/library" color="primary" variant="outlined" class="mt-6">
           Voltar para a Biblioteca
         </v-btn>
@@ -42,17 +42,26 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
+import axios from 'axios' // <--- IMPORTANTE
 
 const jogo = ref(null)
 
-onMounted(() => {
+onMounted(async () => {
   const route = useRoute()
-  const gameId = parseInt(route.params.id)
+  // O ID vem como string da URL, mas o banco usa número (ou vice-versa dependendo do Supabase)
+  const gameId = route.params.id 
 
-  const jogosSalvos = localStorage.getItem('cyberlib_jogos')
-  if (jogosSalvos) {
-    const todosOsJogos = JSON.parse(jogosSalvos)
-    jogo.value = todosOsJogos.find(j => j.id === gameId)
+  try {
+    // Buscamos todos os jogos e filtramos o certo
+    // (Idealmente o backend teria uma rota /games/:id, mas assim funciona sem mexer no backend)
+    const response = await axios.get('http://localhost:3000/games')
+    const todosOsJogos = response.data
+    
+    // Encontra o jogo pelo ID
+    // Usamos '==' para comparar mesmo se um for string e outro numero
+    jogo.value = todosOsJogos.find(j => j.id == gameId) 
+  } catch (error) {
+    console.error("Erro ao carregar detalhes:", error)
   }
 })
 </script>

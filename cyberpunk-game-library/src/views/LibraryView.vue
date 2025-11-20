@@ -1,6 +1,7 @@
 <template>
   <v-container>
     <h1 class="text-primary mb-4" style="text-shadow: 0 0 5px #FCEE0A;">Biblioteca de Jogos</h1>
+
     <v-row class="mb-4">
       <v-col cols="12" md="8">
         <v-text-field
@@ -24,6 +25,7 @@
         ></v-select>
       </v-col>
     </v-row>
+
     <v-row>
       <v-col v-for="jogo in jogosFiltrados" :key="jogo.id" cols="12" sm="6" md="4" lg="3">
         <v-card class="game-card" :to="`/game/${jogo.id}`">
@@ -42,28 +44,32 @@
           </v-card-text>
         </v-card>
       </v-col>
+      <v-col v-if="jogosFiltrados.length === 0">
+        <p class="text-center">Carregando biblioteca ou nenhum jogo encontrado...</p>
+      </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script setup>
 import { ref, onMounted, computed } from 'vue'
-// ADICIONE ESTAS 3 NOVAS VARIÁVEIS
+import axios from 'axios' // <--- IMPORTANTE
+
 const termoBusca = ref('')
-const ordenacao = ref('Nota (Maior para Menor)') // Valor padrão
+const ordenacao = ref('Nota (Maior para Menor)')
 const opcoesOrdenacao = ['Nota (Maior para Menor)', 'Título (A-Z)']
+
+const jogos = ref([])
+
 const jogosFiltrados = computed(() => {
-  // Cria uma cópia da lista original para não modificá-la
   let jogosProcessados = [...jogos.value];
 
-  // 1. Aplica o filtro de busca
   if (termoBusca.value) {
     jogosProcessados = jogosProcessados.filter(jogo =>
       jogo.title.toLowerCase().includes(termoBusca.value.toLowerCase())
     );
   }
 
-  // 2. Aplica a ordenação
   if (ordenacao.value === 'Título (A-Z)') {
     jogosProcessados.sort((a, b) => a.title.localeCompare(b.title));
   } else if (ordenacao.value === 'Nota (Maior para Menor)') {
@@ -72,11 +78,14 @@ const jogosFiltrados = computed(() => {
 
   return jogosProcessados;
 });
-const jogos = ref([])
-onMounted(() => {
-  const jogosSalvos = localStorage.getItem('cyberlib_jogos')
-  if (jogosSalvos) {
-    jogos.value = JSON.parse(jogosSalvos)
+
+// AQUI MUDOU: Busca do servidor em vez do localStorage
+onMounted(async () => {
+  try {
+    const response = await axios.get('http://localhost:3000/games')
+    jogos.value = response.data
+  } catch (error) {
+    console.error("Erro ao carregar biblioteca:", error)
   }
 })
 </script>
